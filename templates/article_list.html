@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Articles{% endblock title %}
+{% block content %}
+    <h5>{{ article_list.count }} articles so far</h5>
+    <hr>
+    {% for article in article_list %}
+        <div class="card">
+            <div class="card-header">
+                <span class="font-weight-bold"><a href="{% url 'article_detail' article.pk %}">{{ article.title }}</a> </span> &middot;
+                <span class="text-muted">by {{ article.author }} |
+                    {{ article.date }}</span>
+            </div>
+            <div class="card-body">
+                <p>{{ article.body|truncatewords:15 }}</p>
+                {% if request.user == article.author %}
+                <a href="{% url 'article_edit' article.pk %}">Edit</a> |
+                <a href="{% url 'article_delete' article.pk %}">Delete</a>
+                {% endif %}
+            </div>
+        </div>
+        <br/>
+    {% endfor %}
+    <br>
+    <br>
+{% endblock content %}

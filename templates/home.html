@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock title %}
+{% block content %}
+        <div class="text-center pt-5">
+            <main class="pt-3">
+                <h1 class="pt-4">Be our News Analyst</h1>
+                <p class="lead"><span class="font-weight-bold">Newsy</span> is the place you can publish your analysis of events around the world.
+                You are responsible for what you share with others and we delete posts that violate our terms!</p>
+                <p class="lead">
+                    <a href="{% url 'article_list' %}" class="btn btn-lg btn-secondary">Read Articles</a>
+                </p>
+            </main>
+        </div>
+    {#    {% if user.is_authenticated %}#}
+    {#        <p>Hi {{ user.username }}! Welcome </p>#}
+    {#        <p><a href="{% url 'logout' %}">Log Out</a></p>#}
+    {#    {% else %}#}
+    {##}
+    {#    {% endif %}#}
+{% endblock content %}
